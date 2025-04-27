@@ -3,8 +3,8 @@
 <package format="3">
   <name>aBot_pkg</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="kdivecha@todo.todo">kdivecha</maintainer>
+  <description>ROS2 Package for an autonomous robot</description>
+  <maintainer email="keahnd@gmail.com">Keahn Divecha</maintainer>
   <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
