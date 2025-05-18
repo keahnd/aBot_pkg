@@ -6,7 +6,7 @@ from launch import LaunchDescription
 
 def generate_launch_description():
     pkg_path = os.path.join(get_package_share_directory('aBot_pkg'))
-    urdf_path = os.path.join(pkg_path, 'desc', 'robot.urdf.xacro.xml')
+    urdf_path = os.path.join(pkg_path, 'desc', 'robot.urdf.xacro')
 
     robot_description_raw = xacro.process_file(urdf_path).toxml()
 
