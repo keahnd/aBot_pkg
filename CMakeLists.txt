@@ -25,7 +25,7 @@ endif()
 
 # Install launch files.
 install(
-  DIRECTORY launch desc config
+  DIRECTORY launch desc config worlds
   DESTINATION share/${PROJECT_NAME}/
 )
 

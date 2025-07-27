@@ -11,6 +11,7 @@ def generate_launch_description():
     pkg_name = 'aBot_pkg'
     my_pkg_path = get_package_share_directory(pkg_name)
     bridge_yaml_path = os.path.join(my_pkg_path, 'config', 'ros_gz_bridge')
+    my_world_path = os.path.join(my_pkg_path, 'worlds', 'obstacle_world.sdf')
 
     robot_state_pub = IncludeLaunchDescription(
             PythonLaunchDescriptionSource([os.path.join(my_pkg_path, 'launch', 'robot_state_publisher.launch.py')]),
@@ -18,7 +19,8 @@ def generate_launch_description():
     
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('ros_gz_sim'), 'launch', 'gz_sim.launch.py')]),
-        launch_arguments={'gz_args': 'empty.sdf'}.items())
+        launch_arguments={'gz_args': my_world_path}.items())
+    
     
     gz_ros_bridge = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('ros_gz_bridge'), 'launch', 'ros_gz_bridge.launch.py')]),
