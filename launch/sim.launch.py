@@ -11,6 +11,7 @@ def generate_launch_description():
     pkg_name = 'aBot_pkg'
     my_pkg_path = get_package_share_directory(pkg_name)
     bridge_yaml_path = os.path.join(my_pkg_path, 'config', 'ros_gz_bridge')
+    ros_gz_image_yaml = os.path.join(my_pkg_path, 'config', 'ros_gz_image')
     my_world_path = os.path.join(my_pkg_path, 'worlds', 'obstacle_world.sdf')
 
     robot_state_pub = IncludeLaunchDescription(
@@ -26,6 +27,12 @@ def generate_launch_description():
         PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('ros_gz_bridge'), 'launch', 'ros_gz_bridge.launch.py')]),
         launch_arguments={'bridge_name': 'ros_gz_bridge', 'config_file': bridge_yaml_path}.items())
     
+    ros_gz_image = Node(package='ros_gz_image', 
+                       executable='image_bridge', 
+                       name='ros_gz_image',
+                       arguments=['/camera/depth/image_raw'],
+                       output='screen')
+    
     spawn_model = Node(package='ros_gz_sim', 
                        executable='create', 
                        arguments=['-topic', 'robot_description', '-name', 'aBot', '-x', '0', '-y', '0', '-z', '0.1'],
@@ -35,5 +42,6 @@ def generate_launch_description():
         robot_state_pub,
         gazebo,
         spawn_model,
-        gz_ros_bridge
+        gz_ros_bridge,
+        ros_gz_image
     ])

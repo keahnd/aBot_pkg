@@ -1,0 +1,7 @@
+ros_gz_image:
+  ros__parameters:
+    ros_topic: "camera/image_raw"
+    gz_topic: "camera/image_raw"
+    ros_type: "sensor_msgs/msg/Image"
+    gz_type: "gz.msgs.Image"
+    direction: GZ_TO_ROS

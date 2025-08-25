@@ -4,6 +4,7 @@
     <xacro:include filename='robot_base.xacro'></xacro:include>
     <xacro:include filename='gazebo_sim_control.xacro'></xacro:include>
     <xacro:include filename='lidar_control.xacro'></xacro:include>
-    <xacro:include filename='gz_camera_control.xacro'></xacro:include>
+    <!-- <xacro:include filename='gz_camera_control.xacro'></xacro:include> -->
+    <xacro:include filename='gz_depth_camera_control.xacro'></xacro:include>
 
 </robot>
