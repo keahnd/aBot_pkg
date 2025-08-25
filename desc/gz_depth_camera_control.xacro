@@ -28,8 +28,9 @@
     <joint name="optical_joint" type="fixed">
         <parent link="camera_link"/>
         <child link="optical_link"/>
-        <!-- <origin xyz="0 0 0" rpy="0 0 0"/> -->
-        <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <!-- <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/> -->
+         <!-- KD-24/08/25 - Did this fix it? -->
     </joint>
 
     <link name="optical_link"></link>
@@ -53,9 +54,10 @@
                 <camera_info_topic>camera/depth/camera_info</camera_info_topic>
                 <horizontal_fov>1.05</horizontal_fov>
                 <image>
-                    <format>R_FLOAT32</format>
-                    <width>256</width>
-                    <height>256</height>
+                    <format>R8G8B8</format>
+                    <width>640</width>
+                    <height>480</height>
+                    <!-- KD: 24/08/25 - Or did this fix it? -->
                 </image>
                 <clip>
                     <near>0.05</near>
