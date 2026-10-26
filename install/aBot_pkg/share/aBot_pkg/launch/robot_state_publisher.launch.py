@@ -1,1 +1,0 @@
-/home/keahn-divecha/Documents/ros_workspaces/aBot_pkg/launch/robot_state_publisher.launch.py

@@ -37,11 +37,23 @@ def generate_launch_description():
                        executable='create', 
                        arguments=['-topic', 'robot_description', '-name', 'aBot', '-x', '0', '-y', '0', '-z', '0.1'],
                        output='screen')
+
+    diff_drive_spawner = Node(package='controller_manager', 
+                           executable='spawner', 
+                           arguments=['diff_drive', '--switch-timeout', '30'],
+                           output='screen')
+
+    joint_broad_spawner = Node(package='controller_manager', 
+                               executable='spawner', 
+                               arguments=['joint_broad', '--switch-timeout', '30'],
+                               output='screen')
     
     return LaunchDescription([
         robot_state_pub,
         gazebo,
         spawn_model,
         gz_ros_bridge,
-        ros_gz_image
+        ros_gz_image,
+        joint_broad_spawner,
+        diff_drive_spawner,
     ])
