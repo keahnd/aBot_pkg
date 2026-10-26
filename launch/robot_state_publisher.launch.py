@@ -5,6 +5,7 @@ from launch_ros.actions import Node
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration, Command
+from launch_ros.parameter_descriptions import ParameterValue
 
 def generate_launch_description():
     enable_sim_time = LaunchConfiguration('use_sim_time')
@@ -14,7 +15,7 @@ def generate_launch_description():
     urdf_path = os.path.join(pkg_path, 'desc', 'robot.urdf.xacro')
 
     # robot_description_raw = xacro.process_file(urdf_path).toxml()
-    robot_description = Command(['xacro ', urdf_path, ' use_ros2_control:=', enable_ros2_control, ' sim_mode:=', enable_sim_time])
+    robot_description = ParameterValue(Command(['xacro ', urdf_path, ' use_ros2_control:=', enable_ros2_control, ' sim_mode:=', enable_sim_time]), value_type=str)
 
     node_robot_state_publisher = Node(package='robot_state_publisher',
                                       executable='robot_state_publisher',

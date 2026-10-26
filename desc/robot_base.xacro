@@ -10,98 +10,100 @@
     <joint name='chassis_joint' type='fixed'>
         <parent link='base_link'/>
         <child link='chassis'/>
-        <origin xyz='-0.1 0 0'/>
+        <origin xyz='0.02 0 0.014'/>
     </joint>
 
     <link name='chassis'>
         <visual>
-            <origin xyz='0.15 0 0.075'/>
+            <origin xyz='0 0 0'/>
             <geometry>
-                <box size='0.3 0.3 0.15'/>
+                <box size='0.18 0.18 0.068'/>
             </geometry>
-            <material name='black'/>
+            <material name='purple'/>
         </visual>
         <collision>
-            <origin xyz='0.15 0 0.075'/>
+            <origin xyz='0 0 0'/>
             <geometry>
-                <box size='0.3 0.3 0.15'/>
+                <box size='0.18 0.18 0.068'/>
             </geometry>
         </collision>
-        <xacro:cuboid_moi mass='0.5' l='0.3' b='0.3' h='0.15'>
-            <origin xyz='0.15 0 0.075' rpy='0 0 0'/>
+        <xacro:cuboid_moi mass='1.0635' l='0.18' b='0.18' h='0.068'>
+            <origin xyz='0 0 0' rpy='0 0 0'/>
         </xacro:cuboid_moi>
     </link>
 
     <joint name='left_wheel_joint' type='continuous'>
         <parent link='base_link'/>
         <child link='left_wheel'/>
-        <origin xyz='0 0.17 0' rpy='-${pi/2} 0 0'/>
+        <origin xyz='0 0.09 0' rpy='-${pi/2} 0 0'/>
         <axis xyz='0 0 1'/>
     </joint>
 
     <link name='left_wheel'>
         <visual>
-            <origin xyz='0 0 0'/>
+            <origin xyz='0 0 0.0135'/>
             <geometry>
-                <cylinder radius='0.05' length='0.04'/>
+                <cylinder radius='0.033' length='0.027'/>
             </geometry>
-            <material name='grey'/>
+            <material name='blue'/>
         </visual>
         <collision>
+			<origin xyz='0 0 0.0135'/>
             <geometry>
-                <cylinder radius='0.05' length='0.04'/>
+                <cylinder radius='0.033' length='0.027'/>
             </geometry>
         </collision>
-        <xacro:cylinder_moi mass='0.5' r='0.05' l='0.04'>
-            <origin xyz='0 0 0' rpy='0 0 0'/>
+        <xacro:cylinder_moi mass='0.033' r='0.033' l='0.027'>
+            <origin xyz='0 0 0.0135' rpy='0 0 0'/>
         </xacro:cylinder_moi>
     </link>
 
     <joint name='right_wheel_joint' type='continuous'>
         <parent link='base_link'/>
         <child link='right_wheel'/>
-        <origin xyz='0 -0.17 0' rpy='${pi/2} 0 0'/>
+        <origin xyz='0 -0.09 0' rpy='${pi/2} 0 0'/>
         <axis xyz='0 0 -1'/>
     </joint>
 
     <link name='right_wheel'>
         <visual>
-            <origin xyz='0 0 0'/>
+            <origin xyz='0 0 0.0135'/>
             <geometry>
-                <cylinder radius='0.05' length='0.04'/>
+                <cylinder radius='0.033' length='0.027'/>
             </geometry>
-            <material name='grey'/>
+            <material name='blue'/>
         </visual>
         <collision>
+			<origin xyz='0 0 0.0135'/>
             <geometry>
-                <cylinder radius='0.05' length='0.04'/>
+                <cylinder radius='0.033' length='0.027'/>
             </geometry>
         </collision>
-        <xacro:cylinder_moi mass='0.5' r='0.05' l='0.04'>
-            <origin xyz='0 0 0' rpy='0 0 0'/>
+        <xacro:cylinder_moi mass='0.033' r='0.033' l='0.027'>
+            <origin xyz='0 0 0.0135' rpy='0 0 0'/>
         </xacro:cylinder_moi>
     </link>
 
     <joint name='caster_wheel_joint' type='fixed'>
-        <parent link='chassis'/>
+        <parent link='base_link'/>
         <child link='caster_wheel'/>
-        <origin xyz='0.25 0 0'/>
+        <origin xyz='0.085 0 -0.02'/>
     </joint>
 
     <link name='caster_wheel'>
         <visual>
             <origin xyz='0 0 0'/>
             <geometry>
-                <sphere radius='0.05'/>
+                <sphere radius='0.0085'/>
             </geometry>
-            <material name='grey'/>
+            <material name='blue'/>
         </visual>
         <collision>
             <geometry>
-                <sphere radius='0.05'/>
+                <sphere radius='0.0085'/>
             </geometry>
         </collision>
-        <xacro:sphere_moi mass='0.5' r='0.05'>
+        <xacro:sphere_moi mass='0.043' r='0.0085'>
             <origin xyz='0 0 0' rpy='0 0 0'/>
         </xacro:sphere_moi>
     </link>

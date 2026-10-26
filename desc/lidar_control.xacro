@@ -4,23 +4,23 @@
     <joint name="lidar_joint" type="fixed">
         <parent link="chassis"/>
         <child link="lidar_link"/>
-        <origin xyz="0.1 0 0.175" rpy="0 0 0"/>
+        <origin xyz="0 0 0.054" rpy="0 0 0"/>
     </joint>
 
     <link name="lidar_link">
         <visual>
             <origin xyz='0 0 0'/>
             <geometry>
-                <cylinder radius='0.05' length='0.04'/>
+                <cylinder radius='0.02' length='0.04'/>
             </geometry>
-            <material name='red'/>
+            <material name='black'/>
         </visual>
         <collision>
             <geometry>
-                <cylinder radius='0.05' length='0.04'/>
+                <cylinder radius='0.02' length='0.04'/>
             </geometry>
         </collision>
-        <xacro:cylinder_moi mass='0.5' r='0.05' l='0.04'>
+        <xacro:cylinder_moi mass='0.045' r='0.02' l='0.04'>
             <origin xyz='0 0 0' rpy='0 0 0'/>
         </xacro:cylinder_moi>
     </link>
